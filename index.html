@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Personal Budget</p>
+          <h1>Expense Tracker</h1>
+        </div>
+        <div class="total-pill">
+          <span>Total Spent</span>
+          <strong id="totalSpent">$0.00</strong>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel form-panel">
+          <h2>Add Expense</h2>
+          <form id="expenseForm">
+            <div class="field-group">
+              <label for="title">Expense</label>
+              <input id="title" name="title" type="text" placeholder="e.g. Groceries" required />
+            </div>
+
+            <div class="field-group">
+              <label for="amount">Amount</label>
+              <input id="amount" name="amount" type="number" min="0.01" step="0.01" placeholder="0.00" required />
+            </div>
+
+            <div class="field-row">
+              <div class="field-group">
+                <label for="category">Category</label>
+                <select id="category" name="category">
+                  <option value="Food">Food</option>
+                  <option value="Transport">Transport</option>
+                  <option value="Bills">Bills</option>
+                  <option value="Shopping">Shopping</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="field-group">
+                <label for="date">Date</label>
+                <input id="date" name="date" type="date" required />
+              </div>
+            </div>
+
+            <button type="submit" class="primary-btn">Add Expense</button>
+          </form>
+        </section>
+
+        <section class="panel summary-panel">
+          <h2>Overview</h2>
+          <div class="summary-grid">
+            <div class="stat-card accent">
+              <span>Monthly Total</span>
+              <strong id="monthlyTotal">$0.00</strong>
+            </div>
+            <div class="stat-card">
+              <span>Transactions</span>
+              <strong id="transactionCount">0</strong>
+            </div>
+            <div class="stat-card">
+              <span>Largest</span>
+              <strong id="largestExpense">$0.00</strong>
+            </div>
+            <div class="stat-card">
+              <span>Top Category</span>
+              <strong id="topCategory">-</strong>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <section class="panel expense-panel">
+        <div class="panel-header">
+          <h2>Recent Expenses</h2>
+        </div>
+        <div id="expenseList" class="expense-list"></div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
